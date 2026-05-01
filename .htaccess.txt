@@ -1,0 +1,7 @@
+DirectoryIndex app.php
+
+RewriteEngine On
+
+RewriteRule ^$ /app.php [L]
+
+# by LaEmiX
