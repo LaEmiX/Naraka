@@ -1,0 +1,306 @@
+/* =========================
+   TOPBAR MENU
+========================= */
+
+.topbar-menu-wrap {
+    position: relative;
+    z-index: 200;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+}
+
+/* =========================
+   TRIGGER MENU
+========================= */
+
+.topbar-menu-trigger {
+    border: 1px solid rgba(0, 245, 255, 0.72);
+    background: transparent;
+    color: var(--cyan);
+    font-family: 'Electrolize', sans-serif;
+    font-size: clamp(10px, 0.72vw, 13px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: clamp(5px, 0.5vw, 8px) clamp(8px, 0.7vw, 10px);
+    cursor: pointer;
+    box-shadow:
+        0 0 10px rgba(0, 245, 255, 0.24),
+        inset 0 0 12px rgba(0, 245, 255, 0.06);
+}
+
+.topbar-menu-trigger:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+    box-shadow:
+        0 0 18px rgba(255, 61, 242, 0.55),
+        0 0 32px rgba(0, 245, 255, 0.22),
+        inset 0 0 16px rgba(255, 61, 242, 0.10);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.topbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 300;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    gap: clamp(8px, 0.8vw, 16px);
+
+    width: max-content;
+    min-width: 0;
+    max-width: calc(100vw - 32px);
+
+    overflow: visible;
+
+    padding: 18px 14px 10px;
+
+    border: 1px solid rgba(0, 245, 255, 0.42);
+    background: rgba(5, 6, 17, 0.86);
+
+    box-shadow:
+        0 0 28px rgba(0, 245, 255, 0.28),
+        0 0 46px rgba(255, 61, 242, 0.16),
+        inset 0 0 24px rgba(0, 245, 255, 0.06);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.16s ease,
+        transform 0.16s ease;
+}
+
+.topbar-menu-wrap:hover .topbar-menu,
+.topbar-menu-wrap:focus-within .topbar-menu {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* =========================
+   LINK BASE
+========================= */
+
+.topbar-menu-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 auto;
+
+    width: clamp(56px, 4.5vw, 84px);
+    height: clamp(56px, 4.5vw, 84px);
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform 0.18s ease;
+}
+
+.topbar-menu-link:hover {
+    transform: scale(1.10);
+}
+
+.topbar-menu-link:active {
+    transform: scale(1.04) translateY(1px);
+}
+
+/* =========================
+   TESTO (fallback)
+========================= */
+
+.topbar-menu-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    white-space: normal;
+
+    color: #00ffff;
+
+    font-size: clamp(9px, 0.7vw, 12px);
+
+    text-shadow:
+        0 0 12px rgba(0,255,255,0.35),
+        0 0 28px rgba(0,255,255,0.18),
+        0 0 48px rgba(0,255,255,0.08);
+}
+
+.topbar-menu-link:hover .topbar-menu-text {
+    text-shadow:
+        0 0 12px rgba(255,61,242,0.35),
+        0 0 26px rgba(255,61,242,0.18),
+        0 0 46px rgba(255,61,242,0.08);
+}
+
+/* =========================
+   IMMAGINI
+========================= */
+
+.topbar-menu-img {
+    display: block;
+
+    width: clamp(48px, 4vw, 76px);
+    height: clamp(48px, 4vw, 76px);
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 12px rgba(0,255,255,0.35))
+        drop-shadow(0 0 28px rgba(0,255,255,0.18))
+        drop-shadow(0 0 48px rgba(0,255,255,0.08));
+
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
+}
+
+.topbar-menu-link:hover .topbar-menu-img {
+    transform: scale(1.06);
+
+    filter:
+        drop-shadow(0 0 14px rgba(255,61,242,0.35))
+        drop-shadow(0 0 30px rgba(255,61,242,0.18))
+        drop-shadow(0 0 52px rgba(255,61,242,0.08));
+}
+
+/* =========================
+   DESKTOP COMPATTO
+========================= */
+
+@media (max-width: 1500px) {
+    .topbar-menu {
+        gap: 10px;
+        padding: 16px 12px 8px;
+    }
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media (min-width: 901px) and (max-width: 1500px) {
+    .topbar-menu {
+        gap: clamp(4px, 0.5vw, 8px);
+    }
+
+    .topbar-menu-link {
+        width: clamp(40px, 3vw, 54px);
+        height: clamp(40px, 3vw, 54px);
+    }
+
+    .topbar-menu-img {
+        width: clamp(32px, 2.6vw, 46px);
+        height: clamp(32px, 2.6vw, 46px);
+    }
+
+    .topbar-menu-text {
+        font-size: clamp(7px, 0.5vw, 9px);
+    }
+}
+
+@media (max-width: 1280px) {
+    .topbar-menu-wrap {
+        grid-area: menu;
+        justify-self: center;
+    }
+
+    .topbar-menu {
+        gap: clamp(4px, 0.5vw, 8px);
+    }
+
+    .topbar-menu-link {
+        width: clamp(40px, 3vw, 54px);
+        height: clamp(40px, 3vw, 54px);
+    }
+
+    .topbar-menu-img {
+        width: clamp(32px, 2.6vw, 46px);
+        height: clamp(32px, 2.6vw, 46px);
+    }
+}
+
+/* =========================
+   TABLET / MOBILE
+========================= */
+
+@media (max-width: 900px) {
+    .topbar-menu-wrap {
+        justify-self: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar-menu-wrap {
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    .topbar-menu-trigger {
+        width: 100%;
+    }
+
+    .topbar-menu {
+        position: static;
+        left: auto;
+        top: auto;
+
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+
+        justify-content: center;
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+
+        padding: 10px 14px;
+    }
+
+    .topbar-menu-wrap:hover .topbar-menu,
+    .topbar-menu-wrap:focus-within .topbar-menu {
+        transform: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .topbar-menu {
+        width: 100%;
+        padding-bottom: 4px;
+    }
+
+    .topbar-menu-link {
+        flex: 0 0 auto;
+    }
+}
+
+/* by LaEmiX */
