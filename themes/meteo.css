@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+@font-face {
+    font-family: 'Digital7';
+    src: url('/themes/fonts/digital-7.woff2') format('woff2'),
+         url('/themes/fonts/digital-7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.topbar-center-wrap {
+    position: relative;
+    z-index: 200;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 0.8vw, 14px);
+    min-width: 0;
+    overflow: visible;
+}
+
+.meteo-box {
+    position: relative;
+    z-index: 210;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    overflow: visible;
+}
+
+/* =========================
+   BOX 1:1 MENU + METEO
+========================= */
+
+.topbar-menu-trigger,
+.meteo-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 0;
+    height: calc((clamp(5px, 0.5vw, 8px) * 2) + clamp(10px, 0.72vw, 13px) + 2px);
+
+    padding: 0 clamp(8px, 0.7vw, 10px);
+
+    border: 1px solid rgba(0, 245, 255, 0.72);
+    background: transparent;
+    color: var(--cyan);
+
+    cursor: pointer;
+    white-space: nowrap;
+
+    box-shadow:
+        0 0 10px rgba(0, 245, 255, 0.24),
+        inset 0 0 12px rgba(0, 245, 255, 0.06);
+}
+
+.topbar-menu-trigger {
+    font-family: 'Electrolize', sans-serif;
+    font-size: clamp(10px, 0.72vw, 13px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+}
+
+.meteo-trigger {
+    font-family: 'Digital7', monospace;
+    font-size: clamp(15px, 1.05vw, 19px);
+    font-weight: normal;
+    text-transform: none;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    text-shadow:
+        0 0 8px rgba(0, 245, 255, 0.65),
+        0 0 16px rgba(0, 245, 255, 0.30);
+}
+
+.topbar-menu-trigger:hover,
+.meteo-trigger:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+    box-shadow:
+        0 0 18px rgba(255, 61, 242, 0.55),
+        0 0 32px rgba(0, 245, 255, 0.22),
+        inset 0 0 16px rgba(255, 61, 242, 0.10);
+}
+
+/* =========================
+   DROPDOWN METEO
+========================= */
+
+.meteo-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 300;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: max-content;
+    min-width: 260px;
+    max-width: min(420px, calc(100vw - 32px));
+
+    overflow: visible;
+
+    padding: 18px 14px 10px;
+
+    border: 1px solid rgba(0, 245, 255, 0.42);
+    background: rgba(5, 6, 17, 0.86);
+
+    box-shadow:
+        0 0 28px rgba(0, 245, 255, 0.28),
+        0 0 46px rgba(255, 61, 242, 0.16),
+        inset 0 0 24px rgba(0, 245, 255, 0.06);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.16s ease,
+        transform 0.16s ease;
+}
+
+.meteo-box:hover .meteo-dropdown,
+.meteo-box:focus-within .meteo-dropdown {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.meteo-temp {
+    font-family: 'Electrolize', sans-serif;
+    font-size: clamp(11px, 0.78vw, 13px);
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    text-shadow:
+        0 0 10px rgba(0, 245, 255, 0.55),
+        0 0 20px rgba(0, 245, 255, 0.22);
+}
+
+.meteo-desc {
+    font-family: 'Electrolize', sans-serif;
+    font-size: clamp(11px, 0.78vw, 13px);
+    color: var(--text);
+    line-height: 1.5;
+    max-width: 390px;
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.18);
+}
+
+@media (max-width: 1500px) {
+    .topbar-center-wrap {
+        gap: 10px;
+    }
+
+    .topbar-menu-trigger,
+    .meteo-trigger {
+        height: calc((5px * 2) + clamp(10px, 0.72vw, 13px) + 2px);
+    }
+
+    .meteo-dropdown {
+        padding: 16px 12px 8px;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1500px) {
+    .topbar-center-wrap {
+        gap: clamp(6px, 0.6vw, 10px);
+    }
+}
+
+@media (max-width: 1280px) {
+    .topbar-center-wrap {
+        grid-area: menu;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar-center-wrap {
+        width: 100%;
+        justify-self: stretch;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .meteo-box {
+        width: 100%;
+    }
+
+    .meteo-trigger {
+        width: 100%;
+        text-align: center;
+    }
+
+    .meteo-dropdown {
+        position: static;
+        left: auto;
+        top: auto;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-top: 10px;
+
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+
+        padding: 10px 14px;
+    }
+
+    .meteo-box:hover .meteo-dropdown,
+    .meteo-box:focus-within .meteo-dropdown {
+        transform: none;
+    }
+}
+
+/* by LaEmiX */
