@@ -1,0 +1,267 @@
+/* =========================
+   MY ROLES
+========================= */
+
+.my-roles-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-family: 'Electrolize', sans-serif;
+}
+
+/* =========================
+   FILTER
+========================= */
+
+.role-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.role-filter-label {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.role-filter-select {
+    min-width: 180px;
+    padding: 8px 10px;
+    border: 1px solid rgba(0, 245, 255, 0.46);
+    background: transparent;
+    color: var(--text);
+    font-family: 'Electrolize', sans-serif;
+    font-size: 13px;
+    outline: none;
+}
+
+.role-filter-select:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 16px rgba(255, 61, 242, 0.22);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.role-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--panel-border);
+    background: rgba(5, 6, 17, 0.22);
+    box-shadow:
+        0 0 24px rgba(0, 245, 255, 0.14),
+        0 0 54px rgba(255, 61, 242, 0.10),
+        inset 0 0 24px rgba(0, 245, 255, 0.05);
+}
+
+.role-table th,
+.role-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.16);
+    color: var(--text);
+    font-size: 13px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.role-table th {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.role-table tr:hover td {
+    background: rgba(255, 61, 242, 0.06);
+}
+
+.role-open-link,
+.role-back-link {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+.role-open-link:hover,
+.role-back-link:hover {
+    color: var(--pink);
+    text-shadow: 0 0 10px rgba(255, 61, 242, 0.42);
+}
+
+/* =========================
+   OPENED ROLE
+========================= */
+
+.role-opened {
+    border: 1px solid var(--panel-border);
+    padding: 14px;
+    background: rgba(5, 6, 17, 0.24);
+    box-shadow:
+        0 0 24px rgba(0, 245, 255, 0.14),
+        0 0 54px rgba(255, 61, 242, 0.10),
+        inset 0 0 24px rgba(0, 245, 255, 0.05);
+}
+
+.role-opened-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.16);
+}
+
+.role-opened-title {
+    color: var(--cyan);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.role-opened-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+.role-opened-meta span {
+    border: 1px solid rgba(0, 245, 255, 0.24);
+    padding: 4px 7px;
+    background: rgba(0, 245, 255, 0.04);
+}
+
+/* =========================
+   MESSAGES
+========================= */
+
+.role-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.role-message {
+    padding: 8px 10px;
+    border-left: 2px solid rgba(0, 245, 255, 0.35);
+    background: rgba(5, 6, 17, 0.18);
+    color: var(--text);
+}
+
+.role-message-master {
+    border-left-color: rgba(255, 94, 220, 0.65);
+}
+
+.role-message-sussurro {
+    border-left-color: rgba(141, 227, 255, 0.65);
+}
+
+.role-message-offgame {
+    border-left-color: rgba(154, 154, 154, 0.65);
+    color: #9a9a9a;
+    font-style: italic;
+}
+
+.role-time {
+    color: var(--cyan);
+    margin-right: 6px;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.role-author {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.role-context {
+    color: var(--pink);
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.role-text {
+    color: inherit;
+}
+
+.role-action-text {
+    color: var(--pink);
+    font-weight: 600;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.role-empty {
+    color: var(--muted);
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+    .role-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .role-filter {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .role-filter-select {
+        width: 100%;
+    }
+}
+
+/* =========================
+   ADMIN ROLE BUTTON
+========================= */
+
+.role-filter button {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--panel-border);
+    padding: 8px 14px;
+    font-family: 'Electrolize', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 12px rgba(0, 245, 255, 0.12),
+        0 0 24px rgba(255, 61, 242, 0.08);
+}
+
+.role-filter button:hover {
+    color: var(--pink);
+    border-color: var(--pink);
+
+    box-shadow:
+        0 0 18px rgba(255, 61, 242, 0.25),
+        0 0 36px rgba(0, 245, 255, 0.15);
+}
+
+/* by LaEmiX */
